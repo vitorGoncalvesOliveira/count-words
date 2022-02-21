@@ -3,7 +3,7 @@ const routes = new Router();
 const checkLogin = require("../middlewares/auth.login");
 const Document = require("../models/document");
 const DocumentHelper = require("../helpers/document.helper");
-
+    
 routes.post(`/documents/word-frequency`, checkLogin,  async(req, res) => {
     const document = await Document.findOne();
     const result = DocumentHelper.wordFrequency(document.content, req.body.word);
@@ -14,7 +14,7 @@ routes.post(`/documents/word-sentences`, checkLogin,  async(req, res) => {
     const document = await Document.findOne();
     const result = DocumentHelper.wordSentences(document.content, req.body.word);
     res.json(result);
-});
+}); 
 
 routes.post(`/documents/top-words`, checkLogin,  async(req, res) => {
     const document = await Document.findOne();

@@ -39,13 +39,13 @@ module.exports = {
 
     isInitOfSetences(element, initSetence){
         const endLine = ['.',';',':','\n'];
-        const onlyNumbers = new RegExp("[0-9]");
-        return !endLine.includes(element) && element === element.toUpperCase() && !initSetence && element !== ' ' && !onlyNumbers.test(element);
+
+        const onlyLetters = new RegExp("[a-zA-Z]"); 
+        return !endLine.includes(element) && element === element.toUpperCase() && !initSetence  && onlyLetters.test(element);
     },
 
     topWords: function(doc, count, minWordLength){
-        //REFACTOR
-
+        
         const allWords = this.stringToWordsArray(doc);
 
         const wordThatHasMinimun = allWords.reduce((inital, word) => {
