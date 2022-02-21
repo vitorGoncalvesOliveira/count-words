@@ -2,6 +2,7 @@ import { useState } from 'react'
 import api from '../api/api'
 import { Container, Content } from './style'
 import SideBar from '../components/SideBar'
+import { toast } from 'react-toastify'
 
 export default function Metodo3(){
     const [setences, setSetences] = useState([])
@@ -15,10 +16,16 @@ export default function Metodo3(){
             setSetences(response.data)
             
         }catch(e){
-            console.log({e})
-            console.log('deu ruim')
+            notify('Ops! algo deu errado!\n tente novamente por favor!')
         }
     }
+
+    const notify = (message) => toast(message, {
+        position: 'bottom-left',
+        autoClose:4000,
+        type: 'error',
+        theme: 'colored'
+    });
 
     return (
         <Container>          

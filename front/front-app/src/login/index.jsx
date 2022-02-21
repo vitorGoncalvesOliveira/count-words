@@ -1,12 +1,15 @@
-import api from '../api/api'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Container, Content, LoginForm } from './styles'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import api from '../api/api'
+import UserContext from '../context/user'
+import { toast } from 'react-toastify';
+
 
 
 export default function Login(){
+
+    const { state, setState } = useContext(UserContext)
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,11 +34,12 @@ export default function Login(){
             const { token } = response.data
             localStorage.setItem('@Netlex:token', token)
             api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            
+            setState(token)
+
             navigate('metodo1')
             
         }catch(err){
-            console.log({e})
+            
             notify()
         }
         
@@ -56,7 +60,7 @@ export default function Login(){
                     <button type='submit'>Entrar</button>
                 </LoginForm>
             </Content>
-            <ToastContainer />
+            
         </Container>
     )    
 }
