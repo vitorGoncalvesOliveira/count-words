@@ -33,5 +33,13 @@ export const Content = styled.div`
             color: white;
             border-radius: 10px;
         }
+
+        p {
+            margin-top: 1rem;            
+        }
+
+        li {
+            margin-top: 1rem;
+        }
     }
 `

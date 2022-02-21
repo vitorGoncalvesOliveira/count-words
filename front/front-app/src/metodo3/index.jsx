@@ -10,11 +10,10 @@ export default function Metodo3(){
 
     const callApi = async () =>{
         try{
-            console.log(count, minWord)
-            const response = await api.post('/documents/top-words', {count, minWordLength:minWord})
             
+            const response = await api.post('/documents/top-words', {count, minWordLength:minWord})            
             setSetences(response.data)
-            console.log(setences)
+            
         }catch(e){
             console.log({e})
             console.log('deu ruim')

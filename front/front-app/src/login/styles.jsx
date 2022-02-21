@@ -12,10 +12,13 @@ export const Content = styled.div`
     justify-content: center;
     align-content: center;
     width: 40%;    
-    height: 60vh;
+    
     margin: auto;
+    
     border-radius: 1rem;
     padding: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
     margin-top: 10%;
 
         h1{
